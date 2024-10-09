@@ -1,0 +1,12 @@
+Use Case 1
+- User loads page and is presented with difficulty buttons, easy, hard, and infinite
+- When user selects a difficulty, the "select a difficulty" container's display is set to none to hide the content
+- On a button click, a script will display the contianer for the user to input words
+- A script will take in user input from the keyboard and display or delete letters based on the input
+- When the user hits "enter", a script will check if the input field is filled or needs more letters
+    - If the input needs more letter, show a warning telling the user to enter more letters
+    - Else, run a script to check the correctness of the input 
+        - If the user has the correct word, display a success message
+        - Else, continue to the next line
+- After the user guesses the correct word or their guesses have run out, display a message asking if they would like to play again
+    - If the user wants to play again, hide the input container and show the difficulty selection
