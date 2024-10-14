@@ -62,16 +62,17 @@
             </div>
 
             <script>
+				//Arrays of words being used for our game
+				const words=["apply","amoks","abuzz","axile","admix","brock","bimbo","blank","booze","bezil","craze","comfy","crock","cajon","cheek","dixie","decoy","doozy","djinn","detox","evade","extra","envoy","empty","exams","fluff","field","flask","fruit","flair","gauze","genre","glyph","graze","guilt","habit","hoist","hover","hydro","harpy","indie","ivory","ionic","idyll","input","joust","juicy","juror","jokes","jewel","karma","knave","kodak","kanji","kinky","latch","lemon","lured","lymph","lyric","macro","marsh","menus","mixer","mogul","navel","niche","nymph","nexus","nails"];
                 // get the boxes that hold the letters
                 let letters = document.getElementsByClassName('letter');
                 let index = 0;
                 // add an event listener to the whole webpage to know when a key is pressed
                 document.body.addEventListener('keypress', (key) => {
-                    console.log(key.charCode);
                     // check if the input is a valid character
                     if ( ((key.charCode > 64 && key.charCode < 91) || (key.charCode > 96 && key.charCode < 123)) && index < letters.length ) {
                         // set the current square's text to the inputted character
-                        letters[index].innerHTML = key.key.toUpperCase();
+                        letters[index].innerHTML = key.key;
                         index += 1;
                     }
                     else if ( key.charCode == 8 && index > 0 ) {
@@ -79,9 +80,6 @@
                         index -= 1;
                         letters[index].innerHTML = "";
                     }
-                    // else if ( key.charCode == 13 ) {
-                        
-                    // }
                 });
             </script>
         </div>
