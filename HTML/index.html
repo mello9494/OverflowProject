@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <script type="text/javascript" src="../JS/user-input.js"></script>
+    <script type="text/javascript" src="../JS/user-input.js"></script>
 </head>
 <body>
     <header>
@@ -17,6 +18,7 @@
         <div class="difficulty-container">
             <h2>Select a difficulty</h2>
             <div class="difficulty-buttons">
+                <button onclick="usrInput()">Easy</button>
                 <button onclick="usrInput()">Easy</button>
                 <button>Hard</button>
                 <button>Infinite</button>
@@ -67,7 +69,7 @@
                 // add an event listener to the whole webpage to know when a key is pressed
                 document.body.addEventListener('keypress', (key) => {
                     // check if the input is a valid character
-                    if ( (key.charCode > 64 && key.charCode < 91) || (key.charCode > 96 && key.charCode < 123) ) {
+                    if ( ((key.charCode > 64 && key.charCode < 91) || (key.charCode > 96 && key.charCode < 123)) && index < letters.length ) {
                         // set the current square's text to the inputted character
                         letters[index].innerHTML = key.key;
                         index += 1;
