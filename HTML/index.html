@@ -19,7 +19,6 @@
             <h2>Select a difficulty</h2>
             <div class="difficulty-buttons">
                 <button onclick="usrInput()">Easy</button>
-                <button onclick="usrInput()">Easy</button>
                 <button>Hard</button>
                 <button>Infinite</button>
             </div>
@@ -71,7 +70,7 @@
                     // check if the input is a valid character
                     if ( ((key.charCode > 64 && key.charCode < 91) || (key.charCode > 96 && key.charCode < 123)) && index < letters.length ) {
                         // set the current square's text to the inputted character
-                        letters[index].innerHTML = key.key;
+                        letters[index].innerHTML = key.key.toUpperCase();
                         index += 1;
                     }
                     else if ( key.charCode == 8 && index > 0 ) {
