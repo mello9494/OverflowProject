@@ -67,6 +67,7 @@
                 let index = 0;
                 // add an event listener to the whole webpage to know when a key is pressed
                 document.body.addEventListener('keypress', (key) => {
+                    console.log(key.charCode);
                     // check if the input is a valid character
                     if ( ((key.charCode > 64 && key.charCode < 91) || (key.charCode > 96 && key.charCode < 123)) && index < letters.length ) {
                         // set the current square's text to the inputted character
@@ -78,6 +79,9 @@
                         index -= 1;
                         letters[index].innerHTML = "";
                     }
+                    // else if ( key.charCode == 13 ) {
+                        
+                    // }
                 });
             </script>
         </div>
