@@ -55,6 +55,7 @@ main {
 
 .difficulty-buttons button:hover {
     background-color: rgb(181, 121, 237);
+    color: white;
 }
 
 .words-container {
@@ -75,10 +76,9 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid;
+    border: 2px solid;
     height: 70px;
     width: 65px;
     font-size: 30px;
     text-align: center;
-
 }
