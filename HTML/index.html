@@ -18,9 +18,9 @@
         <div class="difficulty-container">
             <h2>Select a difficulty</h2>
             <div class="difficulty-buttons">
-                <button onclick="usrInput()">Easy</button>
-                <button>Hard</button>
-                <button>Infinite</button>
+                <button class="'buttons" onclick=showRows()>Easy</button>
+                <button class="'buttons" onclick=showRows()>Hard</button>
+                <button class="'buttons" onclick=showRows()>Infinite</button>
             </div>
         </div>
 
@@ -124,7 +124,15 @@
                     
                     return correctCount == 5 ? true : false; // return if all letters are correct or not
                 }
-                
+            </script>
+
+            <script>
+                function showRows () {
+                    let container = document.getElementsByClassName('words-container')[0];
+                    let buttonContainer = document.getElementsByClassName('difficulty-container')[0];
+                    container.style.maxHeight = container.scrollHeight + "px";
+                    buttonContainer.style.maxHeight = '0px';
+                }
             </script>
         </div>
     </main>
