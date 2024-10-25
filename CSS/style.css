@@ -86,3 +86,8 @@ main {
     font-size: 30px;
     text-align: center;
 }
+
+.win-alert {
+    overflow: hidden;
+    height: 0px;
+}
