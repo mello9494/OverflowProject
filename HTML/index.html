@@ -66,6 +66,11 @@
             </div>
         </div>
 
+        <div class="used-letters">
+            <h2>Used Letters</h2>
+            <div class="used-letters-container"></div>
+        </div>
+
         <script>
             //Arrays of words being used for our game
             const words = ["apply","amoks","abuzz","axile","admix","brock","blank","booze","bezil","craze","comfy","crock","cajon","cheek","dixie","decoy","doozy","djinn","detox","evade","extra","envoy","empty","exams","fluff","field","flask","fruit","flair","gauze","genre","glyph","graze","guilt","habit","hoist","hover","hydro","harpy","indie","ivory","ionic","idyll","input","joust","juicy","juror","jokes","jewel","karma","knave","kodak","kanji","kinky","latch","lemon","lured","lymph","lyric","macro","marsh","menus","mixer","mogul","navel","niche","nymph","nexus","nails","olden","owned","obese","oxide","organ","parka","paste","phony","polka","pygmy","quota","quilt","quiet","quirk","quake","razor","revue","rowdy","ryder","rabid","salah","scion","serum","siege","suave","tango","thyme","topaz","toxin","twirl","usage","ulcer","union","usher","utile","vague","visor","vodka","vowel","vinyl","waved","widen","wrath","wryly","waltz","xylyl","xerox","xebec","xurel","xylem","young","yeast","yield","yokel","yager","zebra","zoned","zeoid","zooid","zesty"];
@@ -78,12 +83,13 @@
             let row5 = document.getElementById('row5').getElementsByClassName('letter');
             let rows = [row1, row2, row3, row4, row5];
             
-            let randomLetter = words[Math.floor(Math.random() * words.length)];
-            console.log(randomLetter);
+            let randomWord = words[Math.floor(Math.random() * words.length)];
+            // console.log(randomLetter);
 
             // prevent the user from entering more than 5 characters at a time
             let index = 0;
             let rowIndex = 0;
+            const usedLetters = new Set();
 
             document.body.addEventListener('keypress', function getInput(key) {
                 let row = rows[rowIndex];
@@ -107,6 +113,7 @@
                         document.body.removeEventListener('keypress', getInput);
                         document.body.getElementsByClassName('win-alert')[0].style.height = 'auto';
                     }
+                    showUsedLetters(row);
                 }
             })
 
@@ -114,13 +121,13 @@
                 let correctCount = 0;
                 for (let i = 0; i < letters.length; i++) {
                     letters[i].style.backgroundColor = 'rgba(91, 90, 92, 0.75)'; // set box color to gray to start
-                    if (letters[i].innerHTML == randomLetter[i].toUpperCase()) {
+                    if (letters[i].innerHTML == randomWord[i].toUpperCase()) {
                         letters[i].style.backgroundColor = 'rgba(69, 41, 113, 0.75)'; // set box to purple when in correct spot
                         correctCount += 1;
                     }
                     else {
-                        for (let j = 0; j < randomLetter.length; j++) {
-                            if (letters[i].innerHTML == randomLetter[j].toUpperCase() && i != j) {
+                        for (let j = 0; j < randomWord.length; j++) {
+                            if (letters[i].innerHTML == randomWord[j].toUpperCase() && i != j) {
                                 letters[i].style.backgroundColor = 'rgba(241, 181, 14, 0.5)'; // set box to yellow when in word but not right spot
                             }
                         }
@@ -130,14 +137,27 @@
                 
                 return correctCount == 5 ? true : false; // return if all letters are correct or not
             }
+
+            function showUsedLetters(letters) {
+                let container = document.getElementsByClassName('used-letters-container')[0];
+                const used = new Set(letters);
+                for (const i of used) {
+                    if (!usedLetters.has(i.innerHTML)) {
+                        container.innerHTML += '<p>' + i.innerHTML + '</p>';
+                        usedLetters.add(i.innerHTML);
+                    }
+                }
+            }
         </script>
 
         <script>
             function showRows() {
                 let container = document.getElementsByClassName('words-container')[0];
                 let buttonContainer = document.getElementsByClassName('difficulty-container')[0];
+                let usedLetters = document.getElementsByClassName('used-letters')[0];
                 container.style.maxHeight = container.scrollHeight + "px";
                 buttonContainer.style.maxHeight = '0px';
+                usedLetters.style.maxHeight = container.scrollHeight + "px";
             }
         </script>
     </main>
