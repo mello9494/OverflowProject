@@ -23,6 +23,7 @@ main {
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 1em;
     font-size: 25px;
 }
@@ -85,4 +86,36 @@ main {
     width: 65px;
     font-size: 30px;
     text-align: center;
+}
+
+.win-alert {
+    overflow: hidden;
+    height: 0px;
+}
+
+.used-letters {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-height: 0px;
+    gap: 0.5em;
+}
+
+.used-letters-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75em;
+    max-width: 250px;
+}
+
+.used-letters-container p {
+    background-color: rgb(168, 168, 168);
+    color: white;
+    border-radius: 3px;
+    padding: 0.5em;
 }
