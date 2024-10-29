@@ -143,6 +143,8 @@ main {
 
 footer {
     display: flex;
+    position: absolute;
+    bottom: 0;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
