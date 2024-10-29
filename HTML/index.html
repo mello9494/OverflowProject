@@ -91,7 +91,7 @@
             let rowIndex = 0;
             const usedLetters = new Set();
 
-            document.body.addEventListener('keypress', function getInput(key) {
+            document.body.addEventListener('keydown', function getInput(key) {
                 let row = rows[rowIndex];
                 // check if the input is a valid character
                 if (((key.charCode > 64 && key.charCode < 91) || (key.charCode > 96 && key.charCode < 123)) && index < row.length) {
