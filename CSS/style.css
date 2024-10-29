@@ -12,8 +12,10 @@ header {
 }
 
 body {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
     position: relative;
+    min-height: 100vh;
 }
 
 main {
@@ -131,8 +133,10 @@ main {
 }
 
 .used-letters-container p {
-    background-color: rgb(168, 168, 168);
     color: white;
+    text-align: center;
+    background-color: rgb(168, 168, 168);
+    width: 15px;
     border-radius: 3px;
     padding: 0.5em;
 }
@@ -146,6 +150,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    margin-top: auto;
     background: linear-gradient(to top, rgb(186, 186, 186), transparent);
     width: 100%;
     padding: 2em;
