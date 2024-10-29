@@ -91,31 +91,36 @@
             let rowIndex = 0;
             const usedLetters = new Set();
 
-            document.body.addEventListener('keydown', function getInput(key) {
-                let row = rows[rowIndex];
-                // check if the input is a valid character
-                if (((key.charCode > 64 && key.charCode < 91) || (key.charCode > 96 && key.charCode < 123)) && index < row.length) {
-                    // set the current square's text to the inputted character
-                    row[index].innerHTML = key.key.toUpperCase();
-                    index += 1;
-                }
-                // delete
-                else if (key.charCode == 8 && index > 0) {
-                    // if the user enters a backspace, go to the previous square and remove the character in it
-                    index -= 1;
-                    row[index].innerHTML = "";
-                }
-                // check row when filled in
-                else if (key.charCode == 13 && index == 5) {
-                    rowIndex += 1;
-                    index = 0;
-                    if (checkValid(row) || rowIndex == 5) {
-                        document.body.removeEventListener('keypress', getInput);
-                        document.body.getElementsByClassName('win-alert')[0].style.height = 'auto';
+            function getInput() {
+                document.body.addEventListener('keydown', function getInput(key) {
+                    let row = rows[rowIndex];
+                    console.log(key);
+                    // check if the input is a valid character
+                    if (((key.keyCode > 64 && key.keyCode < 91) || (key.keyCode > 96 && key.keyCode < 123)) && index < row.length) {
+                        // set the current square's text to the inputted character
+                        console.log('hi');
+                        row[index].innerHTML = key.key.toUpperCase();
+                        index += 1;
                     }
-                    showUsedLetters(row);
-                }
-            })
+                    // delete
+                    else if (key.keyCode == 8 && index > 0) {
+                        // if the user enters a backspace, go to the previous square and remove the character in it
+                        index -= 1;
+                        row[index].innerHTML = "";
+                    }
+                    // check row when filled in
+                    else if (key.keyCode == 13 && index == 5) {
+                        rowIndex += 1;
+                        index = 0;
+                        if (checkValid(row) || rowIndex == 5) {
+                            document.body.removeEventListener('keypress', getInput);
+                            document.body.getElementsByClassName('win-alert')[0].style.height = 'auto';
+                        }
+                        showUsedLetters(row);
+                    }
+                })
+            }
+            
 
             function checkValid(letters) {
                 let correctCount = 0;
@@ -158,6 +163,7 @@
                 container.style.maxHeight = container.scrollHeight + "px";
                 buttonContainer.style.maxHeight = '0px';
                 usedLetters.style.maxHeight = container.scrollHeight + "px";
+                getInput();
             }
         </script>
     </main>
