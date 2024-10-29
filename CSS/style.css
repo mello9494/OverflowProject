@@ -90,8 +90,18 @@ main {
 
 .win-alert {
     overflow: hidden;
+    color: green;
     height: 0px;
 }
+
+.lose-alert{
+    overflow: hidden;
+    height: 0px;
+    color: red;
+    
+    
+}
+
 
 .used-letters {
     margin: 2em;
@@ -119,3 +129,8 @@ main {
     border-radius: 3px;
     padding: 0.5em;
 }
+#notAvaliable{
+    color: red;
+    font-weight: bold;
+}
+
