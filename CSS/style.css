@@ -11,11 +11,16 @@ header {
     margin: 1em;
 }
 
+body {
+    height: 100vh;
+    position: relative;
+}
+
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    height: 700px;
 }
 
 .title {
@@ -91,17 +96,19 @@ main {
 .win-alert {
     overflow: hidden;
     color: green;
+    text-align: center;
     height: 0px;
 }
 
-.lose-alert{
+.lose-alert {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    height: 0px;
     color: red;
-    
-    
+    text-align: center;
+    gap: 0.5em;
+    height: 0px;
 }
-
 
 .used-letters {
     margin: 2em;
@@ -129,8 +136,18 @@ main {
     border-radius: 3px;
     padding: 0.5em;
 }
-#notAvaliable{
+#notAvaliable {
     color: red;
     font-weight: bold;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgb(186, 186, 186), transparent);
+    width: 100%;
+    padding: 2em;
 }
 
