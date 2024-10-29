@@ -11,11 +11,18 @@ header {
     margin: 1em;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+}
+
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    height: 700px;
 }
 
 .title {
@@ -90,6 +97,18 @@ main {
 
 .win-alert {
     overflow: hidden;
+    color: green;
+    text-align: center;
+    height: 0px;
+}
+
+.lose-alert {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: red;
+    text-align: center;
+    gap: 0.5em;
     height: 0px;
 }
 
@@ -114,8 +133,26 @@ main {
 }
 
 .used-letters-container p {
-    background-color: rgb(168, 168, 168);
     color: white;
+    text-align: center;
+    background-color: rgb(168, 168, 168);
+    width: 15px;
     border-radius: 3px;
     padding: 0.5em;
 }
+#notAvaliable {
+    color: red;
+    font-weight: bold;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: auto;
+    background: linear-gradient(to top, rgb(186, 186, 186), transparent);
+    width: 100%;
+    padding: 2em;
+}
+
